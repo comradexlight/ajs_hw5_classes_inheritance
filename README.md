@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/yvaprgu4ks71c3uw?svg=true)](https://ci.appveyor.com/project/comradexlight/ajs-hw5-classes-inheritance)

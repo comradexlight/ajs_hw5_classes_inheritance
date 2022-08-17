@@ -1,15 +1,18 @@
 import Character from '../character';
 
-test.each([
-  ['И', 'Bowman', 100, 1, 10, 10, Error('Вы ввели неверное имя')],
-  [124, 'Bowman', 100, 1, 10, 10, Error('Вы ввели неверное имя')],
-  ['Имя', 'Тип', 100, 1, 10, 10, Error('Вы ввели неверный тип')],
-])('testeing Character class with %s name, %s type, %i health, %i level, %i attack, %i defence and %o Error', (name, type, health, level, attack, defence, error) => {
-  expect(() => { 
-    const char = new Character(name, type, health, level, attack, defence);
-  }).toThrow(error);
+test('positive testing Character class with name Имя and type Swordsman', () => {
+  const char = new Character('Имя', 'Swordsman');
+  expect(char).toEqual({
+    name: 'Имя', type: 'Swordsman', health: 100, level: 1, attack: 0, defence: 0,
+  });
 });
 
-
-//  ['Имя', 'Bowman', 100, 1, 10, 10, { name: 'Имя', type: 'Bowman', health: 100, level: 1, attack: 10, defence: 10 }],
-//const char = new Character(name, type, health, level, attack, defence);
+test.each([
+  ['И', 'Bowman', Error('Вы ввели неверное имя')],
+  [124, 'Bowman', Error('Вы ввели неверное имя')],
+  ['Имя', 'Тип', Error('Вы ввели неверный тип')],
+])('negative testeing Character class with %s name, %s type and %o Error', (name, type, error) => {
+  expect(() => {
+    new Character(name, type);
+  }).toThrow(error);
+});

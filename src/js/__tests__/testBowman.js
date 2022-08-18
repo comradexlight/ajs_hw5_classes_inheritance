@@ -1,6 +1,6 @@
 import Bowman from '../bowman';
 
-test('positive testing Bowman class with name Имя', () => {
+test('Positive test of the Bowman class with parameter: name: Имя', () => {
   const bowman = new Bowman('Имя');
   expect(bowman).toEqual(
     {
